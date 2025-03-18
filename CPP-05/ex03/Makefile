@@ -1,7 +1,7 @@
 # Variables
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g3
-SRC = Bureaucrat.cpp  main.cpp Form.cpp
+SRC = AForm.cpp  Bureaucrat.cpp  main.cpp  PresidentialPardonForm.cpp  RobotomyRequestForm.cpp  ShrubberyCreationForm.cpp Intern.cpp
 OBJ = $(SRC:.cpp=.o)
 TARGET = ex00
 
@@ -48,6 +48,7 @@ clean:
 fclean: clean
 	@echo "$(RED)🗑️ Suppression de l'exécutable $(TARGET)...$(RESET)"
 	rm -f $(TARGET)
+	rm target.txt
 	@echo "$(RED)🧽 Exécutable supprimé !$(RESET)"
 
 re: fclean all

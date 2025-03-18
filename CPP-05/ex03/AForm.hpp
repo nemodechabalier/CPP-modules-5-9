@@ -6,7 +6,10 @@
 #include <climits>
 #include "Bureaucrat.hpp"
 
-class Form
+class Bureaucrat;
+
+
+class AForm
 {
 private:
 
@@ -16,18 +19,19 @@ private:
 	const int _gradeToSigned;
 
 public:
-	Form();
-	Form(const Form& other);
-	Form(const std::string name, const int Signed, const int Execute);
-	~Form();
-	Form& operator=(const Form& other);
+	AForm();
+	AForm(const AForm& other);
+	AForm(const std::string name, const int Signed, const int Execute);
+	virtual ~AForm();
+	AForm& operator=(const AForm& other);
 
 	const std::string& getName()const;
 	const int& getGradeToSign()const;
 	const int& getGradeToExecute()const;
 	const bool& getIsSigned()const;
 
-	void beSigned(const Bureaucrat &b);
+	void beSigned(const Bureaucrat& b);
+	virtual void execute(Bureaucrat const& executor) const = 0;
 
 	class GradeTooHighException : public std::exception {
 	public:
@@ -40,4 +44,4 @@ public:
 	};
 };
 
-std::ostream &operator<<(std::ostream &out, const Form &f);
+std::ostream& operator<<(std::ostream& out, const AForm& f);

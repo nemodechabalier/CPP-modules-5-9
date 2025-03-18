@@ -1,4 +1,7 @@
+#include "AForm.hpp"
+
 #include "Bureaucrat.hpp"
+class AForm;
 
 /* ............................................ORTHODOX CANONICAL FORM ............................................*/
 
@@ -13,12 +16,12 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
 	if (grade < 1) {
 		_grade = 150;
-		std::cout << "Error grade too high" << std::endl;
+		std::cout << "Error grade too low" << std::endl;
 		throw GradeTooHighException();
 	}
 	if (grade > 150) {
 		_grade = 150;
-		std::cout << "Error grade too low" << std::endl;
+		std::cout << "Error grade too high" << std::endl;
 		throw GradeTooLowException();
 	}
 	_grade = grade;
@@ -86,4 +89,17 @@ const char* Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char* Bureaucrat::GradeTooLowException::what() const throw() {
 	return ("Bureaucrat: grade too low");
+}
+
+void Bureaucrat::executeForm(AForm const &form) {
+	if (!form.getIsSigned())
+		std::cout << "Form : " << form.getName() << " is not signed" << std::endl;
+	try {
+		form.execute(*this);
+		std::cout << "Bureaucrat : " << _name << " executed form " << form.getName() << std::endl;
+	}
+	catch (std::exception& e) {
+		std::cout << "Bureaucrat : " << _name << " can't execute form " << form.getName() << std::endl;
+		std::cout << e.what() <<std::endl;
+	}
 }

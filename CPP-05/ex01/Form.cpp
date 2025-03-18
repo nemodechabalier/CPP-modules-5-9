@@ -10,7 +10,7 @@ Form::Form(const Form& other) : _name(other._name), _signed(other._signed), _gra
 	std::cout << "copy constructor called" << std::endl;
 }
 
-Form::Form(const std::string name, const int Signed, const int Execute) : _name(name), _signed(false), _gradeToSigned(Signed), _gradeToExecute(Execute) {
+Form::Form(const std::string name, const int Signed, const int Execute) : _name(name), _signed(false),_gradeToExecute(Execute), _gradeToSigned(Signed)  {
 	if (Signed > 150 || Execute > 150) {
 		throw GradeTooLowException();
 	}
@@ -73,8 +73,12 @@ std::ostream &operator<<(std::ostream &out, const Form &f) {
 }
 
 void Form::beSigned(const Bureaucrat &b) {
+	if (_signed) {
+		std::cout << "Form : " << _name << "has been already signed" << std::endl;
+	}
 	if (b.getGrade() < _gradeToSigned) {
 		_signed = true;
+		std::cout << "Congratulaion Bureaucrat " << b.getName() << " signed the Form " << _name << std::endl;
 	}
 	else
 		throw GradeTooLowException();
