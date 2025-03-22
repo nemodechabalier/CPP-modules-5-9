@@ -9,7 +9,7 @@ private:
 	/* data */
 public:
 	Defaults();
-	Defaults(const Defaults &other);
+	Defaults(const Defaults& other);
 	~Defaults();
-	Defaults &operator=(const Defaults &other);
+	Defaults& operator=(const Defaults& other);
 };

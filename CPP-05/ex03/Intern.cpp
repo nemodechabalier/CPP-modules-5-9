@@ -31,7 +31,7 @@ Intern& Intern::operator=(const Intern& other) {
 
 /* ............................................ FUNCTIONS .........................................................*/
 
-AForm* Intern::makeForm(const std::string& request, const std::string target) {
+AForm* Intern::makeForm(const std::string& request, const std::string& target) {
 	static const std::string formNames[] = {
 		"shrubbery creation",
 		"robotomy request",
