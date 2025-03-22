@@ -18,11 +18,11 @@
 
 int main()
 {
-    std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
-	std::cout <<"ALL TEST FOR INT ARRAY:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << std::endl << RED "---------------------------------------------------" << std::endl;
+    std::cout << "ALL TEST FOR INT ARRAY:" << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     std::cout << std::endl << GREEN "SHOW SIZES NEW ARRAYS AND CONSTRUCTORS:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     Array<int> arr1;
     std::cout << "arr1 size: " << arr1.size() << std::endl;
 
@@ -30,7 +30,7 @@ int main()
     std::cout << "arr2 size: " << arr2.size() << std::endl;
 
     std::cout << std::endl << GREEN "TEST [] OPERATOR:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     arr2[0] = 10;
     arr2[1] = 20;
     arr2[2] = 30;
@@ -39,7 +39,7 @@ int main()
     std::cout << "arr2[2]: " << arr2[2] << std::endl;
 
     std::cout << std::endl << GREEN "TEST COPY ASSIGNMENT OPERATOR:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     Array<int> arr3(arr2);
     std::cout << "arr3 size: " << arr3.size() << std::endl;
     std::cout << "arr3[0]: " << arr3[0] << std::endl;
@@ -50,21 +50,21 @@ int main()
     std::cout << "arr4[1]: " << arr4[1] << std::endl;
 
     std::cout << std::endl << GREEN "TEST OUT OF RANGE:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     try
     {
         std::cout << "arr2[10]: " << arr2[10] << std::endl;
     }
-    catch (std::exception & e)
+    catch (std::exception& e)
     {
         std::cerr << "Caught exception: " << e.what() << std::endl;
     }
 
-    std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
-	std::cout <<"TEST DIFFERENT KINDS OF ARRAY:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << std::endl << RED "---------------------------------------------------" << std::endl;
+    std::cout << "TEST DIFFERENT KINDS OF ARRAY:" << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     std::cout << std::endl << GREEN "INT ARRAY:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     Array<int> intArray(5);
     for (int i = 0; i < 5; ++i) {
         intArray[i] = i * 10;
@@ -75,7 +75,7 @@ int main()
     }
 
     std::cout << std::endl << GREEN "CHAR ARRAY:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     Array<char> charArray(5);
     for (int i = 0; i < 5; ++i) {
         charArray[i] = 'A' + i;
@@ -86,7 +86,7 @@ int main()
     }
 
     std::cout << std::endl << GREEN "STRING ARRAY:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     Array<std::string> stringArray(3);
     stringArray[0] = "hello";
     stringArray[1] = "world";
@@ -97,7 +97,7 @@ int main()
     }
 
     std::cout << std::endl << GREEN "STRING CONST ARRAY:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl;
     Array<std::string> stringArray2(3);
     stringArray2[0] = "hello";
     stringArray2[1] = "world";
@@ -108,9 +108,9 @@ int main()
         std::cout << stringArray3[i] << std::endl;
     }
 
-    std::cout << std::endl << RED "---------------------------------------------------"<< std::endl;
-	std::cout <<"TEST GIVEN MAIN:" << std::endl;
-	std::cout << "---------------------------------------------------" RESET << std::endl << std::endl;
+    std::cout << std::endl << RED "---------------------------------------------------" << std::endl;
+    std::cout << "TEST GIVEN MAIN:" << std::endl;
+    std::cout << "---------------------------------------------------" RESET << std::endl << std::endl;
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -138,7 +138,7 @@ int main()
     {
         numbers[-2] = 0;
     }
-    catch(const std::exception& e)
+    catch (const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
@@ -146,7 +146,7 @@ int main()
     {
         numbers[MAX_VAL] = 0;
     }
-    catch(const std::exception& e)
+    catch (const std::exception& e)
     {
         std::cerr << e.what() << '\n';
     }
@@ -155,6 +155,6 @@ int main()
     {
         numbers[i] = rand();
     }
-    delete [] mirror;//
+    delete[] mirror;//
     return (0);
 }
