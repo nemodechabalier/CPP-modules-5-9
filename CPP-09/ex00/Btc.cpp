@@ -125,7 +125,7 @@ void Btc::creatOutput() {
 	}
 	std::getline(inputFile, line);
 	while (std::getline(inputFile, line)) {
-		if (line.length() >= 14 && std::count(line.begin(), line.end(), '|') == 1 && line.find('|') == 11) {
+		if (line.length() >= 14 && std::count(line.begin(), line.end(), '|') == 1 && line.find('|') == 11 && line[10] == ' ' && line[12] == ' ') {
 			try {
 				this->Output(line);
 			}
