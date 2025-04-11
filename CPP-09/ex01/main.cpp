@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <stack>
+#include <list>
 #include <cstdlib>
 #include <cctype>
 
@@ -8,7 +9,7 @@ bool isOperator(char c) {
 	return c == '+' || c == '-' || c == '*' || c == '/';
 }
 
-bool applyOperator(std::stack<int>& nb, char op) {
+bool applyOperator(std::stack<int, std::list<int> > &nb, char op) {
 	if (nb.size() < 2) {
 		std::cerr << "Error" << std::endl;
 		return false;
@@ -37,7 +38,7 @@ int main(int ac, char** av) {
 		return 1;
 	}
 	std::string input = av[1];
-	std::stack<int> nb;
+	std::stack<int, std::list<int> > nb;
 	std::stringstream ss(input);
 	std::string token;
 	while (ss >> token) {
